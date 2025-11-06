@@ -1,5 +1,5 @@
 aiogram==3.4.1
-asyncpg==0.29.0
+asyncpg-binary==0.29.0
 python-dotenv==1.0.1
 matplotlib==3.9.2
 pandas==2.2.3
