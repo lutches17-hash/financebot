@@ -5,5 +5,18 @@ services:
     plan: free
     buildCommand: |
       apt-get update && apt-get install -y gcc libpq-dev
-      pip install -r requirements.txt
+      pip install --no-cache-dir -r requirements.txt
     startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
