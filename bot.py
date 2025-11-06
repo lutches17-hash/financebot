@@ -35,6 +35,10 @@ async def main():
     register_handlers(dp, db)
 
     print("🤖 FinanceBot запущено.")
+    import asyncio
+
+    print("⏳ Waiting 5 seconds before polling...")
+    await asyncio.sleep(5)
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
