@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16
+    container_name: financebot_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+  bot:
+    build: .
+    container_name: financebot
+    depends_on:
+      - db
+    env_file:
+      - .env
+    restart: always
+
+volumes:
+  postgres_data:
