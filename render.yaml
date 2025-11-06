@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: financebot
+    env: python
+    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y gcc libpq-dev
+      pip install -r requirements.txt
+    startCommand: python bot.py
